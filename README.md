@@ -10,7 +10,7 @@ TF-IDF połączenie powyższych wskaźników.
 
 Do obliczania powyższej macierzy można wykorzystać bibliotekę sklearn do Pythona. 
 
-![](https://upload.wikimedia.org/wikipedia/en/f/fa/MLR-search-engine-example.png)
+![](https://upload.wikimedia.org/wikipedia/en/f/fa/MLR-search-engine-example.png =300x300)
 
 
 ## Full text search in Azure Cognitive Search
