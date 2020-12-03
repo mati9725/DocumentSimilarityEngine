@@ -1,6 +1,6 @@
 # DocumentSimilarityEngine
 
-![](https://cdn-media-1.freecodecamp.org/images/1*q3qYevXqQOjJf6Pwdlx8Mw.png =300x)
+![](https://cdn-media-1.freecodecamp.org/images/1*q3qYevXqQOjJf6Pwdlx8Mw.png)
 
 TF- częstotliwość występowania słowa w danym dokumencie
 
@@ -10,7 +10,7 @@ TF-IDF połączenie powyższych wskaźników.
 
 Do obliczania powyższej macierzy można wykorzystać bibliotekę sklearn do Pythona. 
 
-![](https://upload.wikimedia.org/wikipedia/en/f/fa/MLR-search-engine-example.png =300x)
+![](https://upload.wikimedia.org/wikipedia/en/f/fa/MLR-search-engine-example.png)
 
 
 ## Full text search in Azure Cognitive Search
@@ -38,8 +38,7 @@ https://docs.microsoft.com/en-us/azure/search/search-lucene-query-architecture?f
 
 ## Przygotowanie modelu
 
-* Wybranie cech modelu do uczenia np. długość dokumentu, współczynniki TF-IDF...
-* 
+* Wybranie cech modelu do uczenia np. długość dokumentu, współczynniki TF-IDF
 
 
 
