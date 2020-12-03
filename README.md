@@ -1,3 +1,3 @@
 # DocumentSimilarityEngine
 
-![Optional Text](../master/images/A_possible_architecture_of_a_machine_learning_engine.png)
+![Optional Text](../master/images/A_possible_architecture_of_a_machine_learning_engine.PNG)
