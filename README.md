@@ -1,44 +1,54 @@
-# DocumentSimilarityEngine
+# Document Similarity Engine
 
-![](https://cdn-media-1.freecodecamp.org/images/1*q3qYevXqQOjJf6Pwdlx8Mw.png)
+## Cel projektu
 
-TF- częstotliwość występowania słowa w danym dokumencie
+Celem projektu będzie przygotowanie, przetestowanie oraz wdrożenie w pełni funkcjonalnego serwisu, którego zadaniem będzie rekomendacja artykułów Wikipedii w oparciu o jej podobieństwo do zadanego wyszukiwania. W tym celu wykorzystane zostaną dwa główne komponenty: Azure Functions oraz Azure Storage.
 
-IDF- współczynnik używany do obliczenia wagi rzadkich słów we wszystkich dokumentach. Słowa, które rzadko wystękują mają wysoki IDF. Faworyzacja słów, które występują w niewielu dokumentach –  większa siła dyskryminacyjna.
+## Zdobycie danych
 
-TF-IDF połączenie powyższych wskaźników.
-
-Do obliczania powyższej macierzy można wykorzystać bibliotekę sklearn do Pythona. 
-
-<img src="https://upload.wikimedia.org/wikipedia/en/f/fa/MLR-search-engine-example.png" width="300" height="300" />
-
-
-## Full text search in Azure Cognitive Search
-
-https://docs.microsoft.com/en-us/azure/search/search-lucene-query-architecture?fbclid=IwAR166H8Ym1SgOgK9mmvPHRCXMUpqmQxeD88H3pvXfIOHFKG7uZT-oWisxAw
-
-## Python & Web scraping
-
-1. Łączenie się ze stroną internetową - wykorzystanie biblioteki request.
-2. Scrapowanie – użycie parsera BeautifulSoup.
+1. Łączenie się ze stroną internetową - wykorzystanie biblioteki request
+2. Scrapowanie – użycie parsera BeautifulSoup - można dostać bana 
 3. Pakiet Wikipedia API 
-4. Pobranie dumpa wikipedii
+4. Pobranie dumpa Wikipedii
 
-## Obróbka danych
+## Przygotowanie danych
 
-* Usunięcie zbędnych znaków interpunkcyjnych, liczb, oraz często występujących słów jak np. "i", "lub", "oraz".
-* Wygenerowanie macierzy
+1. Oczyszczenie danych - (lower, strip, tokenizacja, stop words, itd)
 
-## Działanie
+2. Przedstawienie dokumentu w formie wektora:
 
-* Obliczenie odległości kosinusowej pomiędzy zapytaniem, a dokumentem
-	- Konwersja zapytania na reprezentację wektorową
-	- Obliczanie odległości od próbki do elementów z bazy
-	- Wybranie dokumentów z najlepszym wynikiem
+   - **TF-IDF**
 
-## Przygotowanie modelu
+     ![](https://cdn-media-1.freecodecamp.org/images/1*q3qYevXqQOjJf6Pwdlx8Mw.png)
 
-* Wybranie cech modelu do uczenia np. długość dokumentu, współczynniki TF-IDF
+     TF - częstotliwość występowania słowa w danym dokumencie
 
+     IDF- współczynnik używany do obliczenia wagi rzadkich słów we wszystkich dokumentach. Słowa, które rzadko wystękują mają wysoki IDF. Faworyzacja słów, które występują w niewielu dokumentach –  większa siła dyskryminacyjna.
 
+     TF  - IDF połączenie powyższych wskaźników.
 
+     Do obliczania powyższej macierzy można wykorzystać bibliotekę sklearn do Pythona. 
+
+   - **doc2vec**
+
+     Bardziej zaawansowane narzędzie do reprezentacji dokumentu w formie wektora.
+
+## Search Engine
+
+- Proste porównanie poprzez odległość cosinusową pomiędzy wektorami
+- Model ML, którego zadaniem będzie przygotowanie rankingu - Learning to rank
+- Gotowy Search Engine
+
+## Gotowe rozwiązania
+
+- [Full text search in Azure Cognitive Search](https://docs.microsoft.com/en-us/azure/search/search-lucene-query-architecture?fbclid=IwAR1xzNhtWgpP-fEdo57_DFJIpccRtPVvYN_R1yZ966uLzYQs6gdibyzJJRI)
+
+  
+
+## Pytania 
+
+- Czy repozytorium ma/może być publiczne?
+
+- Czy możemy kontaktować się w trakcie wykonywania projektu, gdyby pojawiły się niejasności lub problemy w realizacji projektu? Jeśli tak, to w jakiej formie (MS Teams, wiadomość mailowa, spotkania na Teams)?
+
+  
