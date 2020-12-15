@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=nowafunkcja;AccountKey=OmkklGwrlq6a5LQDHcAGgnNwP95aAaDY257dx/hjOoOa6/ZU6p01MWKAIXUbf6da2dPOfeDL8CmqC2UXV5EPLg==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "FUNCTIONS_EXTENSION_VERSION": "~2",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "bb938e2c-72c9-447a-91bd-08e5b9407ee0"
+  }
+}
