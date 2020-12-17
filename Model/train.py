@@ -5,7 +5,7 @@ from gensim.test.utils import common_texts
 
 # Data Preprocessing
 files = []
-path = 'Data'
+path = 'Model/Data'
 for filename in os.listdir(path): 
     files.append(os.path.join(path, filename))
 
@@ -25,7 +25,7 @@ for epoch in range(max_epochs):
     model.train(documents, total_examples=model.corpus_count, epochs=model.epochs)
 
 # Save model
-model.save("d2v.model")
+model.save("Model/d2v.model")
 
 
 

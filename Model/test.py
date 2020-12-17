@@ -5,7 +5,7 @@ from gensim.test.utils import common_texts
 titles = ['Football', 'Basketball', 'Horse', 'USA', 'Dog']
 
 #load model
-model = Doc2Vec.load("d2v.model")
+model = Doc2Vec.load("Model/d2v.model")
 
 # Test
 text = 'Balls'
