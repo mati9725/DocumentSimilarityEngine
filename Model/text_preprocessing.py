@@ -1,6 +1,7 @@
 import re
 from gensim.parsing.preprocessing import strip_punctuation, strip_multiple_whitespaces, remove_stopwords, strip_non_alphanum
 from gensim.utils import tokenize
+from nltk.stem import WordNetLemmatizer 
 
 def preprocess_data(text):
     #delete [x]
@@ -15,6 +16,9 @@ def preprocess_data(text):
     text = strip_multiple_whitespaces(text)
     #remove stopwords
     text = remove_stopwords(text)
+    # # Lemmatization
+    # lemmatizer = WordNetLemmatizer()
+    # text = lemmatizer.lemmatize(text) 
     #tokenization
     text = text.split(' ')
     return text

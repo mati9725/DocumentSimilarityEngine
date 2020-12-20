@@ -1,28 +1,40 @@
 import os
+import pandas as pd
+
 from text_preprocessing import preprocess_data
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from gensim.test.utils import common_texts
 
-# Data Preprocessing
-files = []
-path = 'Model/Data'
-for filename in os.listdir(path): 
-    files.append(os.path.join(path, filename))
+def count_accuracy(model, data):
+    correct = 0
+    for i, text in enumerate(data):
+        inferred_vector = model.infer_vector(text)
+        n = model.docvecs.most_similar([inferred_vector], topn = 3)
+        x = []
+        for n_ in n:
+            x.append(n_[0])
+        if i in x:
+            correct += 1
+    return 100*correct/len(data)
+    
+# Load data
+path = 'Model/Data/wiki_data.csv'
+df = pd.read_csv(path, delimiter=';', usecols = ['text'])
 
+# Data preprocessing
 data = []
-for file in files:
-    f = open(file, "r")
-    data.append(preprocess_data(f.read()))
+for index, row in df.iterrows():
+    data.append(preprocess_data(row.text))
 
 documents = [TaggedDocument(doc, [i]) for i, doc in enumerate(data)]
 
 # Training
-max_epochs = 300
-model = Doc2Vec(documents, vector_size=100, window=2, min_count=1, workers=4)
+model = Doc2Vec(documents, vector_size=600, workers=4, window=20)
+model.train(documents, total_examples=model.corpus_count, epochs=model.epochs)
 
-for epoch in range(max_epochs):
-    print('iteration {0}'.format(epoch))
-    model.train(documents, total_examples=model.corpus_count, epochs=model.epochs)
+# Count accuracy
+acc = count_accuracy(model, data)
+print(acc)
 
 # Save model
 model.save("Model/d2v.model")

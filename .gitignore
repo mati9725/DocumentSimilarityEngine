@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 
 *config.json
+Model/d2v.model
+Model/d2v.model
+Model/d2v.model.wv.vectors.npy
