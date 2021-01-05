@@ -2,11 +2,10 @@ from text_preprocessing import preprocess_data
 from gensim.models.doc2vec import Doc2Vec
 from gensim.test.utils import common_texts
 import pprint
+import pickle
 
-import pandas as pd
-
-#load model
-model = Doc2Vec.load("Model/d2v.model")
+# load model
+model = pickle.load( open("Model/d2v.model", "rb" ) )
 
 # Load test data
 file_path = 'Model/Data/1.txt'
