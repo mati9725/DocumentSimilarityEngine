@@ -2,4 +2,9 @@
 
 from WikiScrapper import WikiScrapper
 
-WikiScrapper().start_scrapping()
+while True:
+    try:
+        WikiScrapper().start_scrapping()
+    except:
+        pass
+
