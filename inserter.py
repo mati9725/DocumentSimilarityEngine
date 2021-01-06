@@ -15,6 +15,7 @@ while(True):
         
         if file_path is None:
             time.sleep(5)
+            continue
             
         with open(file_path, 'r') as f:
             urls = json.load(f)  
