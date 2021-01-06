@@ -1,43 +1,32 @@
 import os
 import pandas as pd
 
-from text_preprocessing import preprocess_data
+from text_preprocessing import preprocess_data, accuracy
 from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 from gensim.test.utils import common_texts
-
-def count_accuracy(model, data):
-    correct = 0
-    for i, text in enumerate(data):
-        inferred_vector = model.infer_vector(text)
-        n = model.docvecs.most_similar([inferred_vector], topn = 3)
-        x = []
-        for n_ in n:
-            x.append(n_[0])
-        if i in x:
-            correct += 1
-    return 100*correct/len(data)
+import pickle
     
 # Load data
 path = 'Model/Data/wiki_data.csv'
-df = pd.read_csv(path, delimiter=';', usecols = ['text'])
+df = pd.read_csv(path)
 
 # Data preprocessing
-data = []
+documents = []
 for index, row in df.iterrows():
-    data.append(preprocess_data(row.text))
-
-documents = [TaggedDocument(doc, [i]) for i, doc in enumerate(data)]
+    documents.append(TaggedDocument(preprocess_data(row.text), [row.url]))
 
 # Training
-model = Doc2Vec(documents, vector_size=600, workers=4, window=20)
+model = Doc2Vec(dm=1, dbow_words=1, vector_size=300, min_count=1, workers=4, window=5, epochs=20)
+model.build_vocab(documents)
 model.train(documents, total_examples=model.corpus_count, epochs=model.epochs)
 
 # Count accuracy
-acc = count_accuracy(model, data)
+acc = accuracy(model, documents, 3)
 print(acc)
 
 # Save model
-model.save("Model/d2v.model")
+# model.save("Model/d2v.model")
+pickle.dump(model, open("Model/d2v.model", "wb" ))
 
 
 
