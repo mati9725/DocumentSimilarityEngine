@@ -8,7 +8,7 @@ import json
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     try:
-        logging.info('Python HTTP trigger function processed a request.')
+        # logging.info('Python HTTP trigger function processed a request.')
 
         query = req.params.get('query')
         if not query:
@@ -50,9 +50,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             )
 
         except Exception as ex:
-            logging.info("Exception thrown:")
+            logging.error("Exception thrown:")
             errormessage = ex.__str__()
-            logging.info(ex)
+            logging.error(ex)
             
             return func.HttpResponse(
                 "Unexpected error " + errormessage,
@@ -60,27 +60,26 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                 headers={"Access-Control-Allow-Origin": "*"}
             )
     except Exception as ex:
-        logging.info('Entire function exception.')
-        logging.info(ex)
+        logging.error('Entire function exception.')
+        logging.error(ex)
 
             
 
 def query2text(query):
     if validators.url(query.strip()):
-        logging.info("Scrapping url query")
+        # logging.info("Scrapping url query")
         
         url = query
         url_domain = urlparse(url).netloc
         
-        scrapper = WikiScrapper()
-        rp = scrapper.get_robot_parser()
+        rp = WikiScrapper.get_no_db_robot_parser()
         allowed_domain = urlparse(rp.url).netloc
         if url_domain != allowed_domain:
             return None, [f"Given URL is not allowed. Only URLs from {allowed_domain} are allowed."]
         
-        text, _, errors = scrapper.scrap(url, rp)
+        text, _, errors = WikiScrapper.scrap(url, rp)
     else:
-        logging.info("Searching by query as plain search phrase")
+        # logging.info("Searching by query as plain search phrase")
         errors = []
         text = query
 

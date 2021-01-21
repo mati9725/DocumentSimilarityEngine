@@ -20,6 +20,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer
+import os
 
 class WikiScrapper:
     # nltk.download('stopwords')
@@ -41,7 +42,13 @@ class WikiScrapper:
         
         self.print_trace = False #for debugging
     
-    def scrap(self, url, robotparser):
+    def scrap_url(url):
+        robots_txt_url = os.environ['ROBOTS_TXT_URL']
+        rp = urllib.robotparser.RobotFileParser(robots_txt_url)
+        rp.read()
+        return WikiScrapper.scrap(url, rp)
+
+    def scrap(url, robotparser):
         errors = []
         if not robotparser.can_fetch("*", url):
             errors.append("Url disallowed. Content from this URL could not be scrapped.")
@@ -248,6 +255,12 @@ class WikiScrapper:
 
         return text
         
+    def get_no_db_robot_parser():
+        robots_txt_url = os.environ['ROBOTS_TXT_URL']
+        rp = urllib.robotparser.RobotFileParser(robots_txt_url)
+        rp.read()
+        return rp
+
     def get_robot_parser(self):
         rp = urllib.robotparser.RobotFileParser(self.appconfig['robots.txt_url'])
         rp.read()
@@ -282,7 +295,7 @@ class WikiScrapper:
 
             if self.print_trace: print(f"Got URL {url}")
 
-            text, new_urls, errors = self.scrap(url, rp)
+            text, new_urls, errors = WikiScrapper.scrap(url, rp)
             scrap_datetime = datetime.now()
             if self.print_trace: print(f"Got text {text}")
             
