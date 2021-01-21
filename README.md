@@ -149,7 +149,7 @@ Pod tym [linkiem]() znajduje się krótki film demonstrujący działanie naszego
 
 
 
-** Ciekawostki i problemy ** 
+
 ## Dlaczego użycia Azure Machine Learning to gorszy pomysł od Azure Functions? 
 
 Podczas realizacji projektu udało nam się zrealizować projekt również za pomocą innych serwisów niż Azure Functions. 
