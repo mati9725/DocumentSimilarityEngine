@@ -133,3 +133,4 @@ Model/d2v.model
 Model/d2v.model
 Model/d2v.model.wv.vectors.npy
 urls/*.json
+.vscode/settings.json

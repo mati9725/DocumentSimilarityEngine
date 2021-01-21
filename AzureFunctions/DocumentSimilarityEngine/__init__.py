@@ -24,6 +24,7 @@ def main(req: func.HttpRequest, pickledmodel: func.InputStream) -> func.HttpResp
             else:
                 rext = req_body
 
+
     logging.info(f"text loaded: {text}")
     if not text:
         return func.HttpResponse(

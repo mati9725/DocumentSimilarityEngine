@@ -5,3 +5,8 @@
 azure-functions
 gensim
 nltk
+sqlalchemy
+requests
+bs4
+pyodbc
+validators

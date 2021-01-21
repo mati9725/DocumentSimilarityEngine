@@ -26,7 +26,7 @@ class WikiScrapper:
     # nltk.download('punkt')
     
     # porterStemmer = PorterStemmer()
-    stopwords = set(stopwords.words('english'))
+    # stopwords = set(stopwords.words('english'))
     
     def __init__(self):
         self.db_helper = DbHelper()
@@ -44,12 +44,12 @@ class WikiScrapper:
     def scrap(self, url, robotparser):
         errors = []
         if not robotparser.can_fetch("*", url):
-            errors.append("Url disallowed")
+            errors.append("Url disallowed. Content from this URL could not be scrapped.")
         # if url in result_dict:
         #     errors.append(f'Duplicate skipped: {url}')
         #     continue
         if url is None:
-            errors.append('None url skipped')
+            errors.append('Empty url ignored')
         
         if len(errors)>0:
             return None, None, errors

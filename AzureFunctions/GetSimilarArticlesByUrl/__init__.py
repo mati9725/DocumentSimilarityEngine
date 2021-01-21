@@ -1,21 +1,15 @@
 import logging
-import pickle
+from WikiScrapper import WikiScrapper
+from preprocessing import preprocess_data
 import azure.functions as func
-import re
-from gensim.parsing.preprocessing import strip_punctuation, strip_multiple_whitespaces, remove_stopwords, strip_non_alphanum
-from gensim.utils import tokenize
-from gensim.models.doc2vec import Doc2Vec
-from gensim.test.utils import common_texts
-from nltk.stem import WordNetLemmatizer 
 from prediction import predict
 import json
 
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    # logging.info('Python HTTP trigger function processed a request.')
 
+def main(req: func.HttpRequest) -> func.HttpResponse:
     query = req.params.get('query')
     if not query:
-        try: 
+        try:
             req_body = req.get_json()
         except ValueError:
             pass
@@ -25,19 +19,27 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             else:
                 query = req_body
 
-# logging.info(f"text loaded: {query}")
-
-
     if not query:
         return func.HttpResponse(
-             "text is empty",
+             "url is empty",
              status_code=400,
              headers={"Access-Control-Allow-Origin": "*"}
         )
+    
+    scrapper = WikiScrapper()
+    rp = scrapper.get_robot_parser()
+    text, _, errors = scrapper.scrap(query, rp)
 
+    if errors:
+        return func.HttpResponse(
+             "; ".join(errors),
+             status_code=400,
+             headers={"Access-Control-Allow-Origin": "*"}
+        )
+        
     errormessage = ''
     try:
-        response = predict(query)
+        response = predict(text)
 
         return func.HttpResponse(
             json.dumps(response),
@@ -52,7 +54,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.info(errormessage)
         
         return func.HttpResponse(
-             "Unexpected error " + errormessage,
+             "Unexpected error: " + errormessage,
              status_code=500,
              headers={"Access-Control-Allow-Origin": "*"}
         )

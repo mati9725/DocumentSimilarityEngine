@@ -22,11 +22,12 @@ class DbHelper:
                 return json.load(f)
         else:
             config = dict()
-            config['db_name'] = os.getenv('db-db_name')
-            config['server'] = os.getenv('db-server')
-            config['username'] = os.getenv('db-username')
-            config['password'] = os.getenv('db-password')
-            config['scrapper_name'] = os.getenv('db-scrapper_name')
+            config['db_name'] = os.environ['db.db_name']
+            config['server'] = os.environ['db.server']
+            config['username'] = os.environ['db.username']
+            config['password'] = os.environ['db.password']
+            config['scrapper_name'] = os.environ['db.scrapper_name']
+            return config
     
     # On mac, run these first:
     # - brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
