@@ -106,11 +106,7 @@ Pierwszym krokiem reprodukcji rozwiązania będzie pobranie repozytorium.
 
 W celu rozpoczęcia procesu scrapowania danych należy:
 
-- Uzupełnić plik db.config.json danymi połaczeniowymi do bazy, w której będą zapisywane rekordy. Pole scrapper_name to identyfikator, jakim scrapper podpisuje rekordy w bazie. Jaśli wykorzystywane jest wiele scrapperów jednocześnie, to każdy z nich powinien mieć ustawioną inną nazwę.
-- Umieścić ręcznie pierwszy link w bazie.
-- Uruchomić skrypt run_scrapper.py. Skrypt ten pobiera wstępy z wikipedii dla linków umieszczonych wcześniej w bazie i zapisuje je w bazie danych. Zebrane linki do powiązanych artykułów są zapisywane do plików.
-- Uruchomić skrypt run_inserter.py (równolegle z run_scrapper.py), który dodaje do bazy linki zebrane przez scrapper.
-- Konfiguracja scrappera znajduje się w bazie danych, dzięki czmu jest wspólna dla wszystkich instancji.
+
 
 W celu rozpoczęcia nauki modelu należy:
 
@@ -122,13 +118,13 @@ W celu rozpoczęcia nauki modelu należy:
 
 W celu utworzenia rozwiązania w chmurze należy:
 
-- Stworzyć usługę Azure Functions i zdeployoiwać tam funkcje zawarte w repozytorium wraz z wytrenowanym modelem
+
 
 ## Pozostałe artefakty
 
 **Film demonstrujący działanie rozwiązania**
 
-Pod tym [Linkiem](https://youtu.be/7870BoD55Cg) znajduje się krótki film demonstrujący działanie naszego rozwiązania.
+Pod tym [linkiem](https://youtu.be/7870BoD55Cg) znajduje się krótki film demonstrujący działanie naszego rozwiązania.
 
 **Diagram architektury**
 
@@ -152,6 +148,14 @@ Pod tym [Linkiem](https://youtu.be/7870BoD55Cg) znajduje się krótki film demon
 
 
 
+## Ocena dojrzałości rozwiązania
+
+* Rozwiązanie działa! 
+* Jest skończone!
+* Technologie są zaawansowane.
+* Użyto serwisów Paas.
+
+Oczywiście projekt jest jedynie prototypem rozwiązania, ale spełnia wszystkiego wymagania. Do jego uczenia wykorzystano jedynie 13.000 artykułów. Użycie zdecydowanie większej liczby artykułów znacząco poprawiłoby jakoś otrzymanego modelu. Oczywiście należałoby jeszcze poprawić wygląd naszej usługi, tak żeby była bardziej przyjazna dla użytkownika. Niestety żaden z członków naszego zespołu nie rozwija się w tych technologiach.
 
 
 ## Dlaczego użycie Azure Machine Learning to gorszy pomysł od Azure Functions? 
