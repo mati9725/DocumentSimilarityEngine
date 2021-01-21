@@ -63,7 +63,7 @@ Dobór parametrów modelu przeprowadzony został poprzez wyszukiwanie najlepszej
 
 ## Wykorzystanie rozwiązań Microsoft Azure
 
-
+Wykorzystana została usługa Azure Functions. Podczas pracy nad rozwiązanniem zrealizowano również próby wykorzystania innych usług (Blob Storage i Azure Machine Learning). Ostatecznie wykorzystano jedynie Azure Functions wybrane jako najlepsze z testowanych kombinacji spełniających założenia projektu. O powodach przeczytać można w rozdziale **Dlaczego użycie Azure Machine Learning to gorszy pomysł od Azure Functions?**.
 
 ## Ocena dojrzałości rozwiązania
 
@@ -128,7 +128,7 @@ W celu utworzenia rozwiązania w chmurze należy:
 
 **Film demonstrujący działanie rozwiązania**
 
-Pod tym [https://youtu.be/7870BoD55Cg]() znajduje się krótki film demonstrujący działanie naszego rozwiązania.
+Pod tym [Linkiem](https://youtu.be/7870BoD55Cg) znajduje się krótki film demonstrujący działanie naszego rozwiązania.
 
 **Diagram architektury**
 
@@ -154,7 +154,7 @@ Pod tym [https://youtu.be/7870BoD55Cg]() znajduje się krótki film demonstrują
 
 
 
-## Dlaczego użycia Azure Machine Learning to gorszy pomysł od Azure Functions? 
+## Dlaczego użycie Azure Machine Learning to gorszy pomysł od Azure Functions? 
 
 Podczas realizacji projektu udało nam się zrealizować projekt również za pomocą innych serwisów niż Azure Functions. 
 Taką samą funkcjonalność uzyskaliśmy dzięki wrzuceniu lokalnie nauczonemu modelu do serwisu Azure Machine Learning. 
