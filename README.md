@@ -149,3 +149,17 @@ Pod tym [https://youtu.be/7870BoD55Cg]() znajduje się krótki film demonstrują
 - Scraping i deploy modelu - Wojciech Szczęsny, Mateusz Wieczorek
 - Budowa i trening modelu - Bartłomiej Zgórzyński
 
+
+
+
+
+
+## Dlaczego użycia Azure Machine Learning to gorszy pomysł od Azure Functions? 
+
+Podczas realizacji projektu udało nam się zrealizować projekt również za pomocą innych serwisów niż Azure Functions. 
+Taką samą funkcjonalność uzyskaliśmy dzięki wrzuceniu lokalnie nauczonemu modelu do serwisu Azure Machine Learning. 
+Ostatecznie porzuciliśmy ten kierunek z powodu wyższości Azure Functions nad Azure Machine Learnings:
+
+* Koszty - przy użyciu serwisu Machine Learning ponosimy opłaty za korzystanie z tego serwisu
+* Architektura - jeżeli mamy duży system, gdzie mamy tysiąc modeli Azure Machine Learning jest bardzo trudny do zarządzania, bo musimy wrzucić wiele modeli. Jeżeli chcielibyśmy mieć live predykcje dla tych wszystkich modeli, to musielibyśmy mieć tysiąc
+oddzielnych serwisów. W przypadku Azure Function, jeżeli model jest położony na storage to możemy wczytywać dowolny model używając tylko jednego mikro serwisu, jako naszego end-pointu.
