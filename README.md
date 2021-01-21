@@ -67,7 +67,12 @@ Dobór parametrów modelu przeprowadzony został poprzez wyszukiwanie najlepszej
 
 ## Ocena dojrzałości rozwiązania
 
+* Rozwiązanie działa! 
+* Jest skończone!
+* Technologie są zaawansowane.
+* Użyto serwisów Paas.
 
+Oczywiście projekt jest jedynie prototypem rozwiązania, ale spełnia wszystkiego wymagania. Do jego uczenia wykorzystano jedynie 13.000 artykułów. Użycie zdecydowanie większej liczby artykułów znacząco poprawiłoby jakoś otrzymanego modelu. Oczywiście należałoby jeszcze poprawić wygląd naszej usługi, tak żeby była bardziej przyjazna dla użytkownika. Niestety żaden z członków naszego zespołu nie rozwija się w tych technologiach.
 
 ## Przykładowe zapytania
 
@@ -144,18 +149,6 @@ Pod tym [linkiem]() znajduje się krótki film demonstrujący działanie naszego
 
 - Scraping i deploy modelu - Wojciech Szczęsny, Mateusz Wieczorek
 - Budowa i trening modelu - Bartłomiej Zgórzyński
-
-
-
-
-## Ocena dojrzałości rozwiązania
-
-* Rozwiązanie działa! 
-* Jest skończone!
-* Technologie są zaawansowane.
-* Użyto serwisów Paas.
-
-Oczywiście projekt jest jedynie prototypem rozwiązania, ale spełnia wszystkiego wymagania. Do jego uczenia wykorzystano jedynie 13.000 artykułów. Użycie zdecydowanie większej liczby artykułów znacząco poprawiłoby jakoś otrzymanego modelu. Oczywiście należałoby jeszcze poprawić wygląd naszej usługi, tak żeby była bardziej przyjazna dla użytkownika. Niestety żaden z członków naszego zespołu nie rozwija się w tych technologiach.
 
 
 ## Dlaczego użycia Azure Machine Learning to gorszy pomysł od Azure Functions? 
