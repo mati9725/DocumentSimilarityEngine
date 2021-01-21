@@ -67,7 +67,12 @@ Wykorzystana została usługa Azure Functions. Podczas pracy nad rozwiązanniem 
 
 ## Ocena dojrzałości rozwiązania
 
+* Rozwiązanie działa! 
+* Jest skończone!
+* Technologie są zaawansowane.
+* Użyto serwisów Paas.
 
+Oczywiście projekt jest jedynie prototypem rozwiązania, ale spełnia wszystkiego wymagania. Do jego uczenia wykorzystano jedynie 13.000 artykułów. Użycie zdecydowanie większej liczby artykułów znacząco poprawiłoby jakoś otrzymanego modelu. Oczywiście należałoby jeszcze poprawić wygląd naszej usługi, tak żeby była bardziej przyjazna dla użytkownika. Niestety żaden z członków naszego zespołu nie rozwija się w tych technologiach.
 
 ## Przykładowe zapytania
 
@@ -147,15 +152,6 @@ Pod tym [linkiem](https://youtu.be/7870BoD55Cg) znajduje się krótki film demon
 
 
 
-
-## Ocena dojrzałości rozwiązania
-
-* Rozwiązanie działa! 
-* Jest skończone!
-* Technologie są zaawansowane.
-* Użyto serwisów Paas.
-
-Oczywiście projekt jest jedynie prototypem rozwiązania, ale spełnia wszystkiego wymagania. Do jego uczenia wykorzystano jedynie 13.000 artykułów. Użycie zdecydowanie większej liczby artykułów znacząco poprawiłoby jakoś otrzymanego modelu. Oczywiście należałoby jeszcze poprawić wygląd naszej usługi, tak żeby była bardziej przyjazna dla użytkownika. Niestety żaden z członków naszego zespołu nie rozwija się w tych technologiach.
 
 
 ## Dlaczego użycie Azure Machine Learning to gorszy pomysł od Azure Functions? 
